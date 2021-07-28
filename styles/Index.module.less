@@ -1,0 +1,43 @@
+.linkItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+//轮播，热点资讯
+.part1 {
+    margin-top: 20px;
+    .carouselWrap {
+        height: 480px;
+        .carouselContent {
+            height: 100%;
+            .carouselItem {
+                height: 100%;
+                .img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    .rightCard {
+        margin-top: 20px;
+        &:first-child {
+            margin-top: 0;
+        }
+        .hotContent {
+            .hotTitle {
+                width: 0;
+                flex: 1;
+                margin: 0;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+            }
+        }
+    }
+}
+.part2 {
+    margin-top: 20px;
+}
+
