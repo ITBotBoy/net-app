@@ -1,6 +1,5 @@
 const withLess = require("next-with-less");
 // fix: prevents error when .less files are required by node
-const withTypescript = require("@zeit/next-typescript")
 if (typeof require !== 'undefined') {
     require.extensions['.less'] = (file) => {}
 }

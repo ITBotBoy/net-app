@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from 'react';
 
-function handleClick(e:any){
-    console.log(e)
-}
+import Router, { useRouter,withRouter } from "next/router";
+//二级分类
 import Link from 'next/link'
+// @ts-ignore
+
 
 // @ts-ignore
 export default function Index({menu}) {
+    const [activeIndex,setActiveIndex]=useState(0)
+    // @ts-ignore
+    const router = useRouter();
+    function handleClick(e){
+        setActiveIndex(e)
+    }
+    useEffect(()=>{
+        const index=menu.findIndex(i=>i.href===router.pathname)
+        setActiveIndex(index)
+    },[])
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark  bg-dark">
+        <nav className={`navbar navbar-expand-md navbar-dark  bg-dark`}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">在线服务</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -21,10 +33,12 @@ export default function Index({menu}) {
                         {
                             // @ts-ignore
                             menu.map((item,index)=>{
+                                // @ts-ignore
                                 return (
-                                    <li className="nav-item" key={index}>
+                                    // @ts-ignore
+                                    <li className="nav-item" key={index} onClick={handleClick.bind(this,index) }>
                                         <Link href={item.href}>
-                                            <a  className={`nav-link ${!index && 'active'}`} aria-current="page" >{item.title}</a>
+                                            <a  className={`nav-link ${activeIndex===index && 'active'}`} aria-current="page" >{item.title}</a>
                                         </Link>
                                     </li>
                                 )

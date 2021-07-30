@@ -1,6 +1,6 @@
 import TabBar from "../components/tabbar";
 import { List, Avatar, Space } from 'antd';
-import React, {useEffect} from "react";
+import React from "react";
 import { MessageOutlined, LikeOutlined, EyeOutlined } from '@ant-design/icons';
 const listData:any[] = [];
 for (let i = 0; i < 23; i++) {
@@ -14,17 +14,17 @@ for (let i = 0; i < 23; i++) {
             'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
     });
 }
+// @ts-ignore
 const IconText = ({ icon, text }) => (
     <Space>
         {React.createElement(icon)}
         {text}
     </Space>
 );
-export default function Article() {
+export default function Share() {
     function handleChange(e:number){
         console.log(e)
     }
-
     return (
         <main className="container">
             <TabBar handleChange={handleChange}>
