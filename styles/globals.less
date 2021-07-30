@@ -1,6 +1,12 @@
 .navWrap {
     margin-top: 20px;
 }
+.linkItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 //首页，小工具
 .iconWrap {
     display: flex;
@@ -17,3 +23,26 @@
 .iconFooter > div{
     padding-right: 16px;
 }
+//.img-round
+.img-round(@radius){
+    width: unit(@radius,px);
+    height: unit(@radius,px);
+    border-radius: unit(@radius,px);
+    overflow: hidden;
+}
+@widthList:30,50,60;
+.roundList(@data, @i: 1) when(@i =< length(@data)) {
+    @v: extract(@data, @i);
+    .round@{v}{
+        .img-round(@v);
+    }
+    .roundList(@data, (@i + 1));
+}
+.roundList(@widthList);
+.mrList(@n, @i: 1) when (@i =< @n) {
+    .mr@{i} {
+        margin-right:unit(@i,px);
+    }
+    .mrList(@n, (@i + 2));
+}
+.mrList(20,8);

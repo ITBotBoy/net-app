@@ -5,7 +5,7 @@ import Router, { useRouter,withRouter } from "next/router";
 import Link from 'next/link'
 // @ts-ignore
 
-
+//全局apptsx传递路由
 // @ts-ignore
 export default function Index({menu}) {
     const [activeIndex,setActiveIndex]=useState(0)
