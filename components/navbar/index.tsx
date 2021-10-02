@@ -11,10 +11,12 @@ export default function Index({menu}) {
     const [activeIndex,setActiveIndex]=useState(0)
     // @ts-ignore
     const router = useRouter();
+    // @ts-ignore
     function handleClick(e){
         setActiveIndex(e)
     }
     useEffect(()=>{
+        // @ts-ignore
         const index=menu.findIndex(i=>i.href===router.pathname)
         setActiveIndex(index)
     },[])
